@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+ <meta charset="UTF-8">
+    <title>Assignment 9.3</title>
+    
+    <!-- Linking for Bootstrap and Jquery support -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- linking the custom style sheet -->
+    <link href="simple-sidebar.css" rel="stylesheet">
+  </head>
+
+<body>
+<!-- navigation list -->
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+
+<!-- Use collapsable element to open the sidenav -->
+<div class="arrow-right" id="openNav"></div>
+<script>
+
+
+// on ready, on resize, get the height and width of the document    
+$(document).ready(function(){
+$(window).bind('resize', function(e)
+{
+this.location.reload(false); 
+        var height = 0;
+        var width = 0;
+
+        width = $(document).width();
+        height = $(document).height();
+
+        // validating if width and height is less than 300 and displaying the collapsable
+        if(width < 300 || height < 300)
+        {
+            $('#mySidenav').css("width","0px");
+            $('#openNav').css("display","inline-block");
+        }
+        //else displaying the navigation
+        else{
+            $('#mySidenav').css("width","250px");
+        }
+});
+      // on pressing the close button in navigation bar
+$(".closebtn").click(function(){
+        $('#mySidenav').css("width","0px");
+
+$('#openNav').css("display","inline-block");
+    });
+    
+//on pressing the collapsible carat
+
+    $("#openNav").click(function(){
+        $('#mySidenav').css("width","250px");
+    });
+});
+
+</script>    
+<!-- end of body -->
+</body>
+<!-- end of HTML -->
+</html>
